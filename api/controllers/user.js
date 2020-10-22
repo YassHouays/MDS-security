@@ -7,7 +7,7 @@ const UserModel = require('../models/user.js')
 class User {
   constructor (app, connect) {
     this.app = app
-    this.UserModel = connect.model('User', UserModel)
+    this.UserModel = connect.model('users', UserModel)
 
     this.create()
     this.show()
@@ -74,6 +74,8 @@ class User {
    */
   search () {
     this.app.post('/user/search', (req, res) => {
+      console.log('slt')
+
       try {
         const pipe = [{ $limit: req.body.limit || 10 }];
 

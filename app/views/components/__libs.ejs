@@ -1,0 +1,6 @@
+<% if( locals.options.assets && locals.options.assets.libs ) { %>
+    <% if(locals.options.assets.libs.includes('moment')){ %> <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script><% } %>
+    <% if(locals.options.assets.libs.includes('nice-select')){ %> <script src="https://cdn.jsdelivr.net/npm/jquery-nice-select@1.1.0/js/jquery.nice-select.min.js"></script><% } %>
+    <% if(locals.options.assets.libs.includes('datatables')){ %> <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script><% } %>
+<% } %>
+

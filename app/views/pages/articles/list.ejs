@@ -1,0 +1,67 @@
+<div class="flex flex-col px-6 lg:px-48 mt-12">
+    <div style="background-image: url(images/banners/blog_banner_bg.jpg);background-position: top center;background-size: cover;" class="h-64 px-6 w-full rounded-lg flex flex-col flex-wrap justify-center">
+        <h3 class="text-gray-100 text-3xl font-semibold">Blog luqa</h3>
+        <p class="mt-2 text-lg leading-relaxed text-gray-500">Recherchez et suivez un cours en marketing, design ou developpement web.</p>
+    </div>
+</div>
+
+<div class="px-6 lg:px-16 pb-6 h-auto my-10">
+
+    <div class="items-container mt-5 filter-btn-group">
+        <div class="flex justify-between">
+            <div class="flex">
+                <a data-filter="all" class="filter-item text-gray-800 uppercase font-bold cursor-pointer flex items-center text-primary-700 mr-4">Tout</a>
+                <a data-filter="other" class="filter-item text-gray-800 uppercase font-bold cursor-pointer flex items-center">Pour moi</a>
+            </div>
+            
+            <div class="mr-3 nav-item hover:text-primary-500 inline-block">
+                <div @click.away="open = false" class="relative" x-data="{ open: false }">
+                    <button @click="open = !open" class="text-gray-800 uppercase font-bold cursor-pointer flex items-center">Filtres</button>
+                    
+                    <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opaity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="z-50 absolute right-0 w-48 mt-2 origin-top-right rounded-md shadow-lg">
+                        <div class="py-1 bg-white rounded-md shadow-xs">
+                            <%if(locals.data.category && locals.data.category.category) {%>
+                                <% data.category.category.forEach(function(category) { %>
+                                    <a data-filter="<%= category.id %>" class="filter-item flex flex-row items-center px-4 py-2 text-sm text-gray-700 focus:text-gray-900 hover:text-gray-900 focus:outline-none hover:bg-gray-100 focus:bg-gray-100 cursor-pointer"><%= category.name %></a>
+                                <% }); %>
+                            <% }; %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-10">
+            <div class="flex flex-wrap">
+                <% data.articles.articles.forEach(function(article,index) { %>
+                    <% if (index == 0 ) { %>
+                        <div>Dernier article</div>
+                        <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-full article-item" data-category="<%= article.category ? article.category.id : '5ece810165a68f56db03f821'%>">
+                            <div class="lg:w-1/2 bg-white rounded-lg overflow-hidden shadow relative">
+                                <div class="h-56 wrap_banner" style="background: url('<%= article.cover_image %>');background-position: center center;background-size: cover;"></div>
+                                <div class="p-4 h-auto">
+                                    <a href="articles/<%= article.name %>" class="block text-primary-700 hover:text-primary-600 font-semibold mb-2 text-lg md:text-base lg:text-lg"><%= article.name %></a>
+                                    <div class="text-gray-600 text-sm leading-relaxed block md:text-xs lg:text-sm"><%= article.read_duration %> minutes</div>
+                                    <div class="text-gray-600 text-sm leading-relaxed block md:text-xs lg:text-sm"><%= article.content %> minutes</div>
+                                </div>
+                            </div>
+                        </div>     
+                    <% } %>
+                    <!-- <%=  JSON.stringify(article)%>  -->
+                    <% if (index > 0 ) { %>
+                        <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/4 article-item" data-category="<%= article.category ? article.category.id : '5ece810165a68f56db03f821'%>">
+                            <div class="bg-white rounded-lg overflow-hidden shadow relative">
+                                <div class="h-56 wrap_banner" style="background: url('<%= article.cover_image %>');background-position: center center;background-size: cover;"></div>
+                                <div class="p-4 h-auto">
+                                    <a href="articles/<%= article.name %>" class="block text-primary-700 hover:text-primary-600 font-semibold mb-2 text-lg md:text-base lg:text-lg"><%= article.name %></a>
+                                    <div class="text-gray-600 text-sm leading-relaxed block md:text-xs lg:text-sm"><%= article.description %></div>
+                                </div>
+                            </div>
+                        </div>
+                    <% } %>
+                <% }); %>
+    
+            </div>
+        </div>
+    </div>
+
+</div>

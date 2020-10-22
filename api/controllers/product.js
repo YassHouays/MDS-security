@@ -7,7 +7,7 @@ const ProductModel = require('../models/product.js')
 class Product {
   constructor (app, connect) {
     this.app = app
-    this.ProductModel = connect.model('Product', ProductModel)
+    this.ProductModel = connect.model('products', ProductModel)
 
     this.create()
     this.show()
@@ -23,7 +23,7 @@ class Product {
   show () {
     this.app.get('/product/show/:id', (req, res) => {
       try {
-        this.ProductModel.findById(req.params.id).populate("administrator, members, staff").then(product => {
+        this.ProductModel.findById(req.params.id).then(product => {
           res.status(200).json(product || {})
         }).catch(err => {
           res.status(500).json({

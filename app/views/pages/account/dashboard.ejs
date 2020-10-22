@@ -1,0 +1,9 @@
+<%- include('../../components/header'); -%>
+<!-- <%= JSON.stringify(content)%>  -->
+<% if(content.role == "student"){ %>
+    <%- include('dashboard/dashboard_student'); -%>
+<% } else { %>
+    <%- include('dashboard/dashboard_teacher'); -%>
+<% } %>
+
+<%- include('../../components/footer'); -%>

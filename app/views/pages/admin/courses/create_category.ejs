@@ -1,0 +1,28 @@
+<%- include('../../../components/admin_header'); -%>
+
+<nav class="bg-gray-800 px-6 mx-auto lg:px-24">
+    <div class="flex items-center justify-between h-16">
+        <div class="flex items-center justify-between flex-grow">
+            <div class="flex-shrink-0 inline-flex">
+                <div class="flex items-center">
+                    <a href="<%= options.base_url %>admin/courses" class="text-sm flex flex-row font-medium <% if (options.current_subpage == 'courses') { %> text-primary-400 <% }else{ %> text-gray-100 <% } %>">Liste des cours</a>
+                    <a href="<%= options.base_url %>admin/courses/create" class="text-sm ml-4 flex flex-row font-medium <% if (options.current_subpage == 'create_course') { %> text-primary-400 <% }else{ %> text-gray-100 <% } %>">Créer un cours</a>
+                    <a href="<%= options.base_url %>admin/courses/category" class="text-sm ml-4 flex flex-row font-medium <% if (options.current_subpage == 'category') { %> text-primary-400 <% }else{ %> text-gray-100 <% } %>">Liste des catégories</a>
+                    <a href="<%= options.base_url %>admin/courses/category/create" class="text-sm ml-4 flex flex-row font-medium <% if (options.current_subpage == 'create_category') { %> text-primary-400 <% }else{ %> text-gray-100 <% } %>">Créer une catégorie</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="flex flex-col px-6 lg:px-24 mt-12">
+    <form action="" method="post">
+        <div class="w-64">
+            <div class="py-2">
+                <label for="title" class="px-1 text-sm text-gray-700">Titre de la catégorie</label>
+                <input placeholder="Javascript" type="text" name="title" id="title" class="appearance-none bg-grey-lighter text-grey-darker border border-red rounded py-2 px-3 focus:border-gray-600" required>
+            </div>
+        </div>
+        <button class="font-sans mt-3 font-semibold bg-primary-500 w-auto text-white rounded-lg px-3 py-2 hover:bg-primary-600" name="create_category">Créer</button>
+    </form>
+</div>

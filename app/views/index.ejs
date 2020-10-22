@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    
+    <meta name="robots" content="nosnippet"/>
+    <meta name="language" content="fr"/>
+    <meta name="author" content="Yassine Houays"/>
+    <meta name="category" content="education"/>
+    <meta name="theme-color" content="#ed8936"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://luqa.com/"/>
+    <meta property="twitter:url" content="https://luqa.com/"/>
+    <title>Cours de sécurité</title>
+    <meta name="description" content="Lorem Ipsum"/>
+
+    <%- include('components/__stylesheets'); -%>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="/build/stylesheets/main.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@2.7.1/dist/alpine.js"></script>
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Baloo+2:400,600,700&display=swap" rel="stylesheet"> 
+    <%- include('components/__libs'); -%>
+</head>
+<body>
+    
+    <% if( locals.options && locals.options.body ) { %>
+        <%- include( 'pages/' + locals.options.body ); -%>
+    <% } %>
+
+    <%- include('components/__javascripts'); -%>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/javascripts/main.js"></script>
+</body>
+</html>

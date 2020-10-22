@@ -1,0 +1,11 @@
+<% if( locals.options.assets && locals.options.assets.online_stylesheets ) { %>
+    <% locals.options.assets.online_stylesheets.forEach( style => { %>
+        <link rel="stylesheet" type="text/css" href="<%= style %>"> 
+    <% }) %>
+<% } %>
+
+<% if( locals.options.assets && locals.options.assets.stylesheets ) { %>
+    <% locals.options.assets.stylesheets.forEach( style => { %>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/<%= style %>.css"> 
+    <% }) %>
+<% } %>

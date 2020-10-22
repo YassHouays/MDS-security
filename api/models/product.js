@@ -9,7 +9,7 @@ const Schema = new mongoose.Schema({
         default: 'https://pbs.twimg.com/profile_images/1126137112825335808/L5WvNz8W_400x400.jpg'
     },
     }, {
-    collection: 'evenement',
+    collection: 'products',
     minimize: false,
     versionKey: false
     }).set('toJSON', {

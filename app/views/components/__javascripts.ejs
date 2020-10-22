@@ -1,0 +1,11 @@
+<% if( locals.options.assets && locals.options.assets.javascripts ) { %>
+    <% locals.options.assets.javascripts.forEach( script => { %>
+        <script src="/javascripts/<%= script %>.js"></script>
+    <% }) %>
+<% } %>
+
+<% if( locals.options.assets && locals.options.assets.online_javascripts ) { %>
+    <% locals.options.assets.online_javascripts.forEach( script => { %>
+        <script src="<%= script %>"></script>
+    <% }) %>
+<% } %>

@@ -1,0 +1,29 @@
+<%- include('../../components/header'); -%>
+
+<div class="flex flex-col px-6 lg:px-48 mt-12">
+    <div style="background-image: url(images/banners/course_banner_bg.jpg);background-position: top center;background-size: cover;" class="h-64 px-6 w-full rounded-lg flex flex-col flex-wrap justify-center">
+        <h3 class="text-gray-100 text-3xl font-semibold">Bienvenue sur la liste des produits</h3>
+        <p class="mt-2 text-lg leading-relaxed text-gray-500">Recherchez et suivez tous les produits en cours.</p>
+    </div>
+</div>
+
+
+<div class="px-6 lg:px-24 pb-6 h-auto my-10">
+    <div class="items-container mt-5 filter-btn-group">
+        <div class="flex justify-between">
+            <div class="flex">
+                <a data-filter="all" class="filter-item text-gray-800 uppercase font-bold cursor-pointer flex items-center text-primary-700 mr-4">Tout</a>
+                <a data-filter="other" class="filter-item text-gray-800 uppercase font-bold cursor-pointer flex items-center">Pour moi</a>
+            </div>
+            
+            <div class="filter-item text-gray-800 uppercase font-bold cursor-pointer flex items-center">
+                    <a href="<%= options.base_url %>produits/creation" class="">
+                        <span class="ml-2">Créer un produit</span>
+                    </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<%- include('../../components/footer'); -%>
