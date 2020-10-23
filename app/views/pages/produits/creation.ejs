@@ -1,29 +1,43 @@
 <%- include('../../components/header'); -%>
 
-<div class="flex flex-col px-6 lg:px-48 mt-12">
-    <div style="background-image: url(images/banners/course_banner_bg.jpg);background-position: top center;background-size: cover;" class="h-64 px-6 w-full rounded-lg flex flex-col flex-wrap justify-center">
-        <h3 class="text-gray-100 text-3xl font-semibold">Bienvenue sur la liste des produits</h3>
-        <p class="mt-2 text-lg leading-relaxed text-gray-500">Recherchez et suivez tous les produits en cours.</p>
-    </div>
-</div>
 
+<div>
+    <form method="post">
+        <div class="flex flex-wrap px-6 lg:px-24 mt-12 justify-center"> 
 
-<div class="px-6 lg:px-24 pb-6 h-auto my-10">
-    <div class="items-container mt-5 filter-btn-group">
-        <div class="flex justify-between">
-            <div class="flex">
-                <a data-filter="all" class="filter-item text-gray-800 uppercase font-bold cursor-pointer flex items-center text-primary-700 mr-4">Tout</a>
-                <a data-filter="other" class="filter-item text-gray-800 uppercase font-bold cursor-pointer flex items-center">Pour moi</a>
+            <div class="w-full lg:w-3/4 px-4 mb-6">
+                <div class="bg-white border-t border-b sm:rounded border ">
+                    
+                    <div class="border-b">
+                        <div class="flex justify-between px-6 -mb-px">
+                            <div class="py-2 flex items-center">
+                                <label for="title" class="pr-4 text-sm text-gray-700">Titre du produit</label>
+                                <input placeholder="Votre produit" type="text" name="title" id="title" class="appearance-none bg-grey-lighter text-grey-darker border border-red rounded py-2 px-3 focus:border-gray-600" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w-full">
+                        <div class="p-2">
+                            <textarea placeholder="Description du produit" name="content" id="content" class="markdown-editor appearance-none bg-grey-lighter text-grey-darker border border-red rounded py-2 px-3 w-full h-56 focus:border-gray-600" required></textarea>
+                        </div>
+                    </div>
+                    <div class="px-6 -mb-px">
+                        <div class="py-2 flex flex-col">
+                            <label for="url" class="px-1 text-sm text-gray-700">URL</label>
+                            <input placeholder="url-vers-image-produit" type="text" name="url" id="url" class="appearance-none bg-grey-lighter text-grey-darker border border-red rounded py-2 px-3 focus:border-gray-600" required>
+                        </div>
+                    </div>
+                    <div class="px-6 -mb-px">
+                        <div class="py-2 flex flex-col m-auto">
+                            <button class="font-sans mt-3 font-semibold bg-primary-500 w-auto text-white rounded-lg px-3 py-2 hover:bg-primary-600" name="create_course">Créer</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <div class="filter-item text-gray-800 uppercase font-bold cursor-pointer flex items-center">
-                    <a href="<%= options.base_url %>produits/creation" class="">
-                        <span class="ml-2">Créer un produit</span>
-                    </a>
-            </div>
+
         </div>
-
-    </div>
+    </form>
 </div>
 
 <%- include('../../components/footer'); -%>
