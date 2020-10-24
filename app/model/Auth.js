@@ -1,4 +1,5 @@
 const qs = require('querystring');
+const sha256 = require('sha256');
 
 /**
  * Init de axios et création d'une instance
@@ -26,6 +27,29 @@ class Auth {
         return false
     }
 
+        /**
+     * Inscrit un client
+     * @param {String} email
+     * @param {String} password
+     * @return {Boolean}
+     */
+    async register(firstname, lastname, username, email, password) {
+        const sha_pass = sha256( password );
+        return axios_instance.post('signup/', {"email": email, "password": sha_pass})
+            .then((response) => true)
+            .catch((error) => false);
+    }
+
+        /**
+     * Check si l'email donné existe déjà
+     * @param {String} email 
+     * @return {Boolean - Response}
+     */
+    async mailExist(email) {
+        return axios_instance.post('search/', {"endpoint": "user", "find_by": "email", "query": email})
+            .then((response) => (response.data.data.is_exist) ? response.data.data.content : false)
+            .catch((error) => false);
+    }
 
     /**
      * Connecte un client

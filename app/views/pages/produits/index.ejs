@@ -26,11 +26,12 @@
         <div class="mt-10">
             <div class="flex flex-wrap">
                 <% data.produits.forEach(function(produits) { %>
+                    <%= JSON.stringify(produits.url) %>
                     <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/4 article-item" data-category="">
                         <div class="bg-white rounded-lg overflow-hidden shadow relative">
                             <div class="h-56 wrap_banner" style="background: url('<%= produits.cover %>');background-position: center center;background-size: cover;"></div>
                             <div class="p-4 h-auto">
-                                <a href="cours/" class="block text-primary-700 hover:text-primary-600 font-semibold mb-2 text-lg md:text-base lg:text-lg"><%= produits.name %></a>
+                                <a href="/produits/produits" class="block text-primary-700 hover:text-primary-600 font-semibold mb-2 text-lg md:text-base lg:text-lg"><%= produits.name %></a>
                                 <div class="text-gray-600 text-sm leading-relaxed block md:text-xs lg:text-sm"><%= produits.description %></div>
                             </div>
                         </div>

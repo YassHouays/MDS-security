@@ -20,19 +20,20 @@ router.get('/', async function(req, res) {
 * Process POST d'inscription
 */
 router.post('/', async function(req, res) {
+	console.log('je suis la')
 	let error_status, error_message;
 
 	if(req.body.accept_cgu !== '' && req.body.accept_cgu){
-		if(req.body.first_name && req.body.first_name !== '' && req.body.last_name !== '' && req.body.last_name && req.body.username !== '' && req.body.username && req.body.email !== '' && req.body.email && req.body.password !== '' && req.body.password && req.body.confirm_password !== '' && req.body.confirm_password){
+		if(req.body.email !== '' && req.body.email && req.body.password !== '' && req.body.password && req.body.confirm_password !== '' && req.body.confirm_password){
 			
-			let {first_name, last_name, username, email, password, confirm_password} = req.body
+			let {email, password, confirm_password} = req.body
 			let verifEmail = await req.Auth.mailExist(email);
 
 			if (!verifEmail){
-				
+				console.log('email verif')
 				if (password == confirm_password){
 	
-					let request = await req.Auth.register(first_name, last_name, username, email, password);
+					let request = await req.Auth.register(email, password);
 					if(request){
 					
 							res.redirect('compte');

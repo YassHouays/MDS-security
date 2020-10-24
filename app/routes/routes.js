@@ -5,7 +5,6 @@ const router = require('express').Router();
 */
 router.use('/', require('./index') );
 router.use('/', require('./auth') );
-router.use('/cours', require('./cours') );
 router.use('/produits', require('./produits') );
 
 /**

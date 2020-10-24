@@ -12,7 +12,7 @@ const axios_instance = axios.create({
 /**
 * Class gérant les produits
 */
-class Produit {
+class Product {
 
 
     async getProducts() {
@@ -21,6 +21,18 @@ class Produit {
             .catch((error) => false);
     }
 
+
+        /**
+     * Créer un cours
+     * @param {String} body
+     * @return {Boolean - Response}
+     */
+    async createProduct(body) {
+        return axios_instance.post('product/create', {name: body.title, cover: body.url, description: body.description})
+            .then((response) => (response.data.data) ? response.data.data : false)
+            .catch((error) => console.log(error) && false);
+    }
+
 }
 
-module.exports = Produit;
+module.exports = Product;
