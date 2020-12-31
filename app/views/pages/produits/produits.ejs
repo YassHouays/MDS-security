@@ -1,5 +1,18 @@
 <%- include('../../components/header'); -%>
-<div class="px-6 lg:px-24 pb-6 h-auto my-10">
-    <%= JSON.stringify(data.produits) %>
-</div>
+<form method="post">
+    <div class="mt-10">
+        <div class="flex flex-wrap justify-center">
+                <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/2 article-item" data-category="">
+                    <div class="bg-white rounded-lg overflow-hidden shadow relative">
+                        <div class="h-56 wrap_banner" style="background: url('<%= data.produits.cover %>');background-position: center center;background-size: cover;"></div>
+                        <div class="p-4 h-auto">
+                            <a href="/produits/<%= data.produits.id %>" class="block text-primary-700 hover:text-primary-600 font-semibold mb-2 text-lg md:text-base lg:text-lg"><%= data.produits.name %></a>
+                            <div class="text-gray-600 text-sm leading-relaxed block md:text-xs lg:text-sm"><%= data.produits.description %></div>
+                            <button class="bg-transparent hover:bg-red-500 text-red-500 border border-red-500 hover:text-white py-1 px-2 rounded mt-4" name="action" value="reset_medias"><i class="far fa-trash-alt"></i> Supprimer</button>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</form>
 <%- include('../../components/footer'); -%>

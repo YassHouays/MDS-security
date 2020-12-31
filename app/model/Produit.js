@@ -20,7 +20,11 @@ class Product {
             .then((response) => (response.data) ? (response.data) : false)
             .catch((error) => false);
     }
-
+    async getProductsBySlug(name) {
+        return axios_instance.get(`product/show/${name}`)
+            .then((response) => (response.data) ? (response.data) : false)
+            .catch((error) => false);
+    }
 
         /**
      * Créer un cours
@@ -29,6 +33,13 @@ class Product {
      */
     async createProduct(body) {
         return axios_instance.post('product/create', {name: body.title, cover: body.url, description: body.description})
+            .then((response) => (response.data.data) ? response.data.data : false)
+            .catch((error) => console.log(error) && false);
+    }
+
+    async deleteProduct(body,name) {
+        console.log(name)
+        return axios_instance.delete(`product/delete/${name}`)
             .then((response) => (response.data.data) ? response.data.data : false)
             .catch((error) => console.log(error) && false);
     }

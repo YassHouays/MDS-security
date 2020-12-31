@@ -15,8 +15,7 @@
 			<div class="hidden lg:block">
 				<div class="flex items-center ml-4 md:ml-6">
 					<% if(logged == false) { %>
-						<a href="<%= options.base_url %>login" class="ml-4 flex flex-row font-medium text-gray-800">Connexion</a>
-						<a href="<%= options.base_url %>register" class="ml-4 flex flex-row font-medium rounded px-2 py-1 bg-primary-300 text-primary-800">Inscription</a>
+						<a href="<%= options.base_url %>login" class="ml-4 flex flex-row font-medium rounded px-2 py-1 bg-primary-300 text-primary-800">Connexion</a>
 					<% } else { %>
 						<div @click.away="open = false" class="relative ml-3" x-data="{ open: false }">
 							<div>
