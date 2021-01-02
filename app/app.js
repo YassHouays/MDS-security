@@ -10,7 +10,13 @@ const cors = require('cors');
 const helmet = require('helmet');
 const fileUpload = require('express-fileupload');
 const io = require('socket.io')(server);
+const https = require('https');
+const fs = require('fs');
 
+const options = {
+    key: fs.readFileSync('../config/key/app/key.pem'),
+    cert: fs.readFileSync('../config/key/app/cert.pem')
+  };
 
 /**
 * Init des objets de l'app
@@ -58,6 +64,7 @@ app.use('/', router);
 /**
 * Lancement du serveur
 */
-server.listen(process.env.SERVER_PORT, () => {
+app.listen(process.env.SERVER_PORT, () => {
     console.log(`Listening to requests on ${process.env.BASE_URL}`);
 });
+https.createServer(options, app).listen(8080);

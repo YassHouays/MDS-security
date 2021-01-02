@@ -7,4 +7,4 @@ RUN npm install
 COPY . /usr/src/auth-api/
 EXPOSE 3031
 
-CMD ["npm", "start"]
+CMD ["nodemon"]

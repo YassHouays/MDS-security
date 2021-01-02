@@ -7,4 +7,4 @@ RUN npm install
 COPY . /usr/src/app/
 EXPOSE 3020
 
-CMD ["npm", "start"]
+CMD ["nodemon"]

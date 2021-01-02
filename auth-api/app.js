@@ -2,8 +2,16 @@ const express = require('express');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const bodyParser = require('body-parser');
+const https = require('https')
+const fs = require('fs');
+
+
 require('dotenv').config()
 
+const options = {
+  key: fs.readFileSync('../config/key/auth-api/key.pem'),
+  cert: fs.readFileSync('../config/key/auth-api/cert.pem')
+};
 
 const UserModel = require('./model/model');
 const host = `mongodb+srv://${process.env.NOSQL_USER}:${process.env.NOSQL_PWD}@${process.env.NOSQL_HOST}/${process.env.NOSQL_TABLE}?retryWrites=true&w=majority`
@@ -35,3 +43,4 @@ app.use(function(err, req, res, next) {
 app.listen(3031, () => {
   console.log('Server started.')
 });
+https.createServer(options, app).listen(8081);

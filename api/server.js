@@ -2,6 +2,10 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const cors = require('cors')
+const https = require('https')
+const fs = require('fs');
+
+
 require('dotenv').config()
 
 const routes = require('./routes.js')
@@ -95,12 +99,17 @@ class Server {
    */
   run () {
     try {
+      const options = {
+        key: fs.readFileSync('../config/key/api/key.pem'),
+        cert: fs.readFileSync('../config/key/api/cert.pem')
+      };
       this.connect = this.dbConnect()
       this.dbConnect()
       this.middleware()
       this.routes()
       this.app.listen(3000)
       console.log('go sur : http://localhost:3000')
+      https.createServer(options, this.app).listen(8082);
     } catch (err) {
       console.log(`[ERROR] Server -> ${err}`)
     }
