@@ -78,4 +78,19 @@ Here some exemple : </br>
  
  After all this installation you are good to use the app 
 
+ ### Installation with docker
+ 
+And start it with docker-compose up --build
+
+You will find one DockerFile in the backend of the project and one on the Frontend In the main repository a Docker-compose , ready to start everything.
+
+ ### Security with TLS
+ 
+All the api and app are securised with TLS you can find  a folder ```Config``` with a key and a certificat for each api and acces it with this url : </br> 
+API : https://localhost:8082/ </br>
+APP : https://localhost:8080/ </br>
+AUTH-API : https://localhost:8081/ </br>
+
+
+the auth-api is secured with JWT (https://www.npmjs.com/package/jsonwebtoken) and use a token who expires in 10h and use an algorithm HS256
 
